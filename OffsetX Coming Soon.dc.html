@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OffsetX — Carbon Intelligence Infrastructure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      background: #080E0B;
+    }
+
+    body {
+      background: #080E0B;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #DFF2EA;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grid texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(26,255,224,0.025) 0px, rgba(26,255,224,0.025) 1px, transparent 1px, transparent 120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Left accent bar */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: rgba(26,255,224,0.1);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    ::selection { background: rgba(26,255,224,0.18); color: #DFF2EA; }
+
+    /* Focus ring */
+    *:focus-visible { outline: 2px solid #1AFFE0; outline-offset: 2px; }
+
+    /* Scroll progress */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1px;
+      background: #1AFFE0;
+      width: 0%;
+      z-index: 1000;
+      transition: width 60ms linear;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      background: rgba(8,14,11,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 300ms ease;
+    }
+    nav.scrolled { border-color: rgba(26,255,224,0.1); }
+
+    .nav-inner {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1AFFE0;
+      letter-spacing: 3.5px;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #7AB8A0;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    .nav-link:hover { color: #DFF2EA; }
+
+    .nav-cta {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #1AFFE0;
+      border: 1px solid rgba(26,255,224,0.35);
+      background: transparent;
+      padding: 9px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 150ms ease, border-color 150ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-cta:hover { background: rgba(26,255,224,0.07); border-color: rgba(26,255,224,0.6); }
+    .nav-cta .arr { transition: transform 150ms ease; }
+    .nav-cta:hover .arr { transform: translateX(3px); }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 80px;
+      padding-right: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* SECTION EYEBROW */
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1AFFE0;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 164px 0 120px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-inner { max-width: 900px; }
+
+    .hero-h1 {
+      font-size: clamp(38px, 5.2vw, 72px);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -2px;
+      color: #DFF2EA;
+      margin-bottom: 28px;
+    }
+    .hero-h1 .accent { color: #1AFFE0; }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.72;
+      color: #C8E6DA;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: #1AFFE0;
+      color: #080E0B;
+      border: none;
+      padding: 15px 32px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: filter 150ms ease;
+    }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .btn-primary .arr { transition: transform 150ms ease; }
+    .btn-primary:hover .arr { transform: translateX(3px); }
+
+    .btn-ghost {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: transparent;
+      color: #1AFFE0;
+      border: 1px solid rgba(26,255,224,0.3);
+      padding: 14px 31px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background 150ms ease, border-color 150ms ease;
+    }
+    .btn-ghost:hover { background: rgba(26,255,224,0.06); border-color: rgba(26,255,224,0.55); }
+
+    /* ── SECTION SPACERS ── */
+    .section { padding: 120px 0; position: relative; z-index: 1; }
+    .section-alt { background: #0A1410; position: relative; z-index: 1; }
+
+    .section-header { margin-bottom: 56px; }
+    .section-h2 {
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      color: #DFF2EA;
+      max-width: 700px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(26,255,224,0.08);
+      border: none;
+      margin: 0;
+    }
+
+    /* ── PROBLEM GRID ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(26,255,224,0.07);
+    }
+
+    .prob-card {
+      background: #0D1A14;
+      padding: 28px 28px 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: background 200ms ease;
+    }
+    .prob-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0%;
+      background: #1AFFE0;
+      transition: height 300ms ease;
+    }
+    .prob-card:hover::before { height: 100%; }
+    .prob-card:hover { background: #0F1E17; }
+    .prob-card:hover .prob-title,
+    .prob-card:hover .prob-body { padding-left: 12px; }
+    .prob-title, .prob-body { transition: padding-left 300ms ease; }
+
+    .prob-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #1AFFE0;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .prob-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #DFF2EA;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+    }
+    .prob-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7AB8A0;
+      line-height: 1.65;
+    }
+
+    /* ── PRODUCT TABLE ── */
+    .product-rows { border-top: 1px solid rgba(26,255,224,0.08); }
+    .product-row {
+      display: grid;
+      grid-template-columns: 64px 220px 1fr;
+      gap: 0;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(26,255,224,0.08);
+      align-items: start;
+      transition: background 150ms ease;
+      cursor: default;
+    }
+    .product-row:hover { background: rgba(26,255,224,0.025); }
+    .product-row:hover .prod-num { transform: translateX(4px); }
+
+    .prod-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      color: #1AFFE0;
+      padding-top: 2px;
+      transition: transform 150ms ease;
+    }
+    .prod-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #DFF2EA;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+      padding-right: 40px;
+    }
+    .prod-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: #7AB8A0;
+      line-height: 1.68;
+    }
+
+    /* ── COUNTER STRIP ── */
+    #counters {
+      background: #0D1A14;
+      border-top: 1px solid rgba(26,255,224,0.08);
+      border-bottom: 1px solid rgba(26,255,224,0.08);
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .counter-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .counter-cell {
+      padding: 0 40px;
+      border-right: 1px solid rgba(26,255,224,0.08);
+    }
+    .counter-cell:first-child { padding-left: 0; }
+    .counter-cell:last-child { border-right: none; }
+
+    .counter-num {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -3px;
+      color: #1AFFE0;
+      line-height: 1;
+      margin-bottom: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .counter-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #7AB8A0;
+      letter-spacing: 2.5px;
+      line-height: 1.4;
+    }
+
+    /* ── RESEARCH GRID ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(26,255,224,0.07);
+    }
+    .research-card {
+      background: #080E0B;
+      padding: 28px;
+      border-top: 2px solid rgba(26,255,224,0.1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      transition: background 200ms ease;
+    }
+    .research-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: #1AFFE0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 250ms ease;
+    }
+    .research-card:hover::after { transform: scaleX(1); }
+    .research-card:hover { background: rgba(26,255,224,0.02); }
+    .research-card:hover .research-cta .arr { opacity: 1; transform: translateX(0); }
+
+    .research-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #1AFFE0;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .research-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #DFF2EA;
+      line-height: 1.48;
+      letter-spacing: -0.3px;
+      margin-bottom: auto;
+      padding-bottom: 20px;
+      flex: 1;
+    }
+    .research-cta {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #3D7A60;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .research-cta .arr {
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+
+    /* ── EMAIL CAPTURE ── */
+    #follow {
+      text-align: center;
+      padding: 120px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .follow-h2 {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #DFF2EA;
+      margin-bottom: 16px;
+    }
+    .follow-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: #7AB8A0;
+      line-height: 1.7;
+      margin-bottom: 44px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .email-row {
+      display: flex;
+      justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .email-input {
+      flex: 1;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(26,255,224,0.15);
+      border-right: none;
+      padding: 15px 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      color: #DFF2EA;
+      outline: none;
+      min-width: 0;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .email-input::placeholder { color: rgba(200,230,218,0.3); }
+    .email-input:focus {
+      border-color: rgba(26,255,224,0.4);
+      box-shadow: 0 0 0 3px rgba(26,255,224,0.06);
+    }
+    .email-submit {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: #1AFFE0;
+      color: #080E0B;
+      border: none;
+      padding: 15px 28px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: filter 150ms ease;
+    }
+    .email-submit:hover { filter: brightness(1.08); }
+    .email-submit .arr { transition: transform 150ms ease; }
+    .email-submit:hover .arr { transform: translateX(3px); }
+
+    .success-msg {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px 28px;
+      border: 1px solid rgba(26,255,224,0.2);
+      background: rgba(26,255,224,0.04);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .success-icon {
+      width: 20px; height: 20px;
+      border: 1px solid #1AFFE0;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .success-dot { width: 8px; height: 8px; background: #1AFFE0; }
+    .success-text-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #1AFFE0;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .success-text-body { font-size: 13px; color: #7AB8A0; font-weight: 300; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(26,255,224,0.08);
+      padding: 36px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #3D7A60;
+      letter-spacing: 2px;
+    }
+    .footer-contact {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #3D7A60;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    .footer-contact:hover { color: #7AB8A0; }
+
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 500ms cubic-bezier(0,0,0.2,1), transform 500ms cubic-bezier(0,0,0.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+    .reveal-d3 { transition-delay: 240ms; }
+    .reveal-d4 { transition-delay: 320ms; }
+
+    /* Hero specific */
+    .hero-eyebrow { opacity: 0; animation: fadeUp 400ms cubic-bezier(0,0,0.2,1) 100ms forwards; }
+    .hero-headline { opacity: 0; animation: fadeUp 600ms cubic-bezier(0,0,0.2,1) 300ms forwards; }
+    .hero-sub-el { opacity: 0; animation: fadeUp 500ms cubic-bezier(0,0,0.2,1) 600ms forwards; }
+    .hero-ctas-el { opacity: 0; animation: fadeUp 400ms cubic-bezier(0,0,0.2,1) 800ms forwards; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-eyebrow, .hero-headline, .hero-sub-el, .hero-ctas-el {
+        opacity: 1 !important; transform: none !important; animation: none !important;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .nav-inner { padding: 0 40px; }
+      .container { padding-left: 40px; padding-right: 40px; }
+      .product-row { grid-template-columns: 56px 1fr; }
+      .prod-desc { grid-column: 2; padding-top: 6px; }
+      .counter-num { font-size: 52px; }
+      .counter-cell { padding: 0 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 20px; }
+      .nav-links { display: none; }
+      .container { padding-left: 20px; padding-right: 20px; }
+      #hero { padding: 100px 0 80px; }
+      .hero-h1 { letter-spacing: -1px; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .section { padding: 80px 0; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .product-row { grid-template-columns: 44px 1fr; }
+      .prod-desc { font-size: 13px; }
+      .counter-grid { grid-template-columns: 1fr 1fr; }
+      .counter-cell { padding: 20px; border-right: none; border-bottom: 1px solid rgba(26,255,224,0.08); }
+      .counter-cell:nth-child(odd) { border-right: 1px solid rgba(26,255,224,0.08); }
+      .counter-cell:nth-last-child(-n+2) { border-bottom: none; }
+      .counter-num { font-size: 48px; }
+      .research-grid { grid-template-columns: 1fr; }
+      #follow { padding: 80px 0; }
+      .email-row { flex-direction: column; }
+      .email-input { border-right: 1px solid rgba(26,255,224,0.15); border-bottom: none; }
+      .email-submit { width: 100%; justify-content: center; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</helmet>
+
+<!-- Scroll progress bar -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════════════════════════
+     01 — NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <span class="wordmark">OFFSETX</span>
+    <div class="nav-links" role="navigation">
+      <a href="#problem" class="nav-link">WHY NOW</a>
+      <a href="#product" class="nav-link">WHAT WE BUILD</a>
+      <a href="#signals" class="nav-link">RESEARCH</a>
+      <a href="#follow" class="nav-cta">JOIN EARLY ACCESS <span class="arr">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     02 — HERO
+═══════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow hero-eyebrow">CARBON INTELLIGENCE INFRASTRUCTURE</span>
+      <h1 class="hero-h1 hero-headline">
+        Building the <span class="accent">trust layer</span><br>
+        for compliance-grade<br>
+        carbon markets.
+      </h1>
+      <p class="hero-sub hero-sub-el">We are building the data and compliance infrastructure that helps organisations generate trusted, audit-ready carbon intelligence for the next generation of climate regulations.</p>
+      <div class="hero-ctas hero-ctas-el">
+        <a href="#follow" class="btn-primary">JOIN EARLY ACCESS <span class="arr">→</span></a>
+        <a href="mailto:hello@offsetx.ai" class="btn-ghost">TALK TO THE FOUNDER</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" style="position: relative; z-index: 1;">
+
+<!-- ═══════════════════════════════════════════════
+     03 — THE PROBLEM
+═══════════════════════════════════════════════ -->
+<section id="problem" class="section" aria-label="The Problem">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">03 — THE PROBLEM</span>
+      <h2 class="section-h2">The carbon market is scaling without the infrastructure it needs.</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card reveal">
+        <span class="prob-tag">FRAGMENTATION</span>
+        <div class="prob-title">No unified carbon data layer</div>
+        <div class="prob-body">Carbon data is scattered across dozens of registries, methodologies, and geographies. There is no consolidated, machine-readable view of the global market.</div>
+      </div>
+      <div class="prob-card reveal reveal-d1">
+        <span class="prob-tag">VERIFICATION GAP</span>
+        <div class="prob-title">No standard for credit quality</div>
+        <div class="prob-body">No standardised way to assess carbon credit quality across registries and jurisdictions. Buyers cannot independently verify what they're purchasing.</div>
+      </div>
+      <div class="prob-card reveal reveal-d2">
+        <span class="prob-tag">INFRASTRUCTURE</span>
+        <div class="prob-title">No universal trust layer</div>
+        <div class="prob-body">No universal trust layer exists across carbon registries, markets, and geographies. The market is scaling without the infrastructure it needs to sustain that growth.</div>
+      </div>
+      <div class="prob-card reveal reveal-d1">
+        <span class="prob-tag">COMPLIANCE OPACITY</span>
+        <div class="prob-title">Regulatory exposure is opaque</div>
+        <div class="prob-body">Organisations cannot easily map their exposure under CBAM, Article 6, and evolving national frameworks. Compliance risk is invisible until it's urgent.</div>
+      </div>
+      <div class="prob-card reveal reveal-d2">
+        <span class="prob-tag">TRUST DEFICIT</span>
+        <div class="prob-title">Greenwashing eroded confidence</div>
+        <div class="prob-body">Greenwashing scandals have damaged market credibility. Buyers can no longer verify what they are paying for without third-party tooling that doesn't yet exist.</div>
+      </div>
+      <div class="prob-card reveal reveal-d3">
+        <span class="prob-tag">MARKET INTELLIGENCE</span>
+        <div class="prob-title">Pricing and supply data is fragmented</div>
+        <div class="prob-body">Real-time data on supply, demand, pricing, and registry activity is fragmented across proprietary sources with no unified, structured access layer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" style="position: relative; z-index: 1;">
+
+<!-- ═══════════════════════════════════════════════
+     04 — WHAT WE'RE BUILDING
+═══════════════════════════════════════════════ -->
+<section id="product" class="section" aria-label="What We're Building">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">04 — WHAT WE'RE BUILDING</span>
+      <h2 class="section-h2">Five capabilities.<br>One connected platform.</h2>
+    </div>
+    <div class="product-rows reveal reveal-d1">
+      <div class="product-row">
+        <div class="prod-num">[01]</div>
+        <div class="prod-title">Compliance intelligence platform</div>
+        <div class="prod-desc">Audit-ready reporting mapped to CBAM, Article 6, and national carbon regulations. Output that survives regulatory scrutiny — built for the compliance teams who need it most.</div>
+      </div>
+      <div class="product-row">
+        <div class="prod-num">[02]</div>
+        <div class="prod-title">Registry connectivity layer</div>
+        <div class="prod-desc">Unified data access across Verra, Gold Standard, CAR, ACR, and regional registries. One API, every standard, structured and queryable for the first time.</div>
+      </div>
+      <div class="product-row">
+        <div class="prod-num">[03]</div>
+        <div class="prod-title">Organisational carbon profiling</div>
+        <div class="prod-desc">Risk and opportunity mapping for industrial companies navigating the compliance transition. Know your regulatory exposure before your regulator does.</div>
+      </div>
+      <div class="product-row">
+        <div class="prod-num">[04]</div>
+        <div class="prod-title">Carbon market intelligence</div>
+        <div class="prod-desc">Structured data on credit supply, demand, registry activity, and compliance exposure — delivering the clarity that institutional buyers and traders have been missing.</div>
+      </div>
+      <div class="product-row">
+        <div class="prod-num">[05]</div>
+        <div class="prod-title">Trust and verification infrastructure</div>
+        <div class="prod-desc">UNIC — Universal Carbon Identifier — traceable across registries and geographies. A permanent, verifiable fingerprint for every credit, every transaction.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     05 — DISCOVERY COUNTER
+═══════════════════════════════════════════════ -->
+<div id="counters" aria-label="Research scope">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-cell">
+        <div class="counter-num" data-target="20" data-suffix="+">0</div>
+        <div class="counter-label">EXPERT<br>INTERVIEWS</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num" data-target="12" data-suffix="+">0</div>
+        <div class="counter-label">STAKEHOLDER<br>GROUPS</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num" data-target="4" data-suffix="">0</div>
+        <div class="counter-label">GEOGRAPHIES<br>COVERED</div>
+      </div>
+      <div class="counter-cell">
+        <div class="counter-num" data-target="30" data-suffix="+">0</div>
+        <div class="counter-label">HOURS OF<br>RESEARCH</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     06 — RESEARCH & SIGNALS
+═══════════════════════════════════════════════ -->
+<section id="signals" class="section" aria-label="Research and Signals">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">06 — RESEARCH &amp; SIGNALS</span>
+      <h2 class="section-h2">Our perspective<br>on what's coming.</h2>
+    </div>
+    <div class="research-grid">
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal">
+        <span class="research-tag">REGULATION</span>
+        <div class="research-title">CBAM: What the Q1 2026 certificate price means for European industrial imports</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal reveal-d1">
+        <span class="research-tag">MARKET</span>
+        <div class="research-title">Why the voluntary carbon market contracted — and what compliance demand means for recovery</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal reveal-d2">
+        <span class="research-tag">TECHNOLOGY</span>
+        <div class="research-title">What Digital MRV can and cannot do: an honest assessment of satellite-based verification limits</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal reveal-d1">
+        <span class="research-tag">GOVERNANCE</span>
+        <div class="research-title">Article 6 after COP29: what the Paris Agreement rulebook means for compliance carbon buyers</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal reveal-d2">
+        <span class="research-tag">METHODOLOGY</span>
+        <div class="research-title">Registry methodology gaps: how 23 standards create 23 different definitions of additionality</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+      <a href="https://linkedin.com/in/sahilkhan" target="_blank" rel="noopener" class="research-card reveal reveal-d3">
+        <span class="research-tag">INSIGHT</span>
+        <div class="research-title">The industrial buyer's dilemma: procurement strategy in a compliance-driven voluntary market</div>
+        <div class="research-cta">READ ON LINKEDIN <span class="arr">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" style="position: relative; z-index: 1;">
+
+<!-- ═══════════════════════════════════════════════
+     07 — EMAIL CAPTURE
+═══════════════════════════════════════════════ -->
+<section id="follow" aria-label="Join early access">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block; text-align:center;">07 — JOIN EARLY ACCESS</span>
+    <h2 class="follow-h2 reveal reveal-d1">Be among the first organisations<br>to access OffsetX.</h2>
+    <p class="follow-sub reveal reveal-d2">We're onboarding a select group of compliance teams and carbon market participants. No commitment required — just early access.</p>
+    <div class="email-row reveal reveal-d3" id="email-form">
+      <input type="email" class="email-input" placeholder="your@company.com" id="email-field" aria-label="Email address">
+      <button class="email-submit" id="email-btn" type="button">JOIN <span class="arr">→</span></button>
+    </div>
+    <div class="success-msg" id="success-msg" role="status">
+      <div class="success-icon"><div class="success-dot"></div></div>
+      <div>
+        <div class="success-text-label">YOU'RE ON THE LIST</div>
+        <div class="success-text-body">We'll reach out when access opens. Thank you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     08 — FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="wordmark" style="font-size: 12px;">OFFSETX</span>
+      <span class="footer-copy">© 2026 OFFSETX · CARBON INTELLIGENCE INFRASTRUCTURE</span>
+      <a href="mailto:hello@offsetx.ai" class="footer-contact">hello@offsetx.ai</a>
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  componentDidMount() {
+    this.initNav();
+    this.initProgress();
+    this.initReveal();
+    this.initCounters();
+    this.initEmailForm();
+  }
+
+  initNav() {
+    const nav = document.getElementById('main-nav');
+    if (!nav) return;
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    this._cleanNav = () => window.removeEventListener('scroll', onScroll);
+  }
+
+  initProgress() {
+    const bar = document.getElementById('progress-bar');
+    if (!bar) return;
+    const onScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      const pct = scrollHeight - clientHeight > 0
+        ? (scrollTop / (scrollHeight - clientHeight)) * 100
+        : 0;
+      bar.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._cleanProgress = () => window.removeEventListener('scroll', onScroll);
+  }
+
+  initReveal() {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
+    this._revealObs = obs;
+  }
+
+  initCounters() {
+    const nums = document.querySelectorAll('.counter-num[data-target]');
+    if (!nums.length) return;
+    const ease = p => 1 - Math.pow(1 - p, 3);
+    const animateCount = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const val = Math.floor(ease(progress) * target);
+        if (progress < 1) {
+          el.textContent = val;
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target;
+          // Suffix fades in after count finishes
+          if (suffix) {
+            const span = document.createElement('span');
+            span.textContent = suffix;
+            span.style.cssText = 'opacity:0;transition:opacity 200ms ease 100ms';
+            el.appendChild(span);
+            requestAnimationFrame(() => { span.style.opacity = '1'; });
+          }
+        }
+      };
+      requestAnimationFrame(tick);
+    };
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { animateCount(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    nums.forEach(el => obs.observe(el));
+  }
+
+  initEmailForm() {
+    const btn = document.getElementById('email-btn');
+    const field = document.getElementById('email-field');
+    const form = document.getElementById('email-form');
+    const success = document.getElementById('success-msg');
+    if (!btn || !field || !form || !success) return;
+
+    btn.addEventListener('click', () => {
+      const val = field.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if (!valid) {
+        field.style.borderColor = 'rgba(255,80,80,0.4)';
+        field.focus();
+        setTimeout(() => { field.style.borderColor = ''; }, 1400);
+        return;
+      }
+      form.style.cssText = 'opacity:0;transition:opacity 300ms ease;pointer-events:none';
+      setTimeout(() => {
+        form.style.display = 'none';
+        success.style.display = 'flex';
+        success.style.opacity = '0';
+        success.style.transition = 'opacity 400ms ease';
+        requestAnimationFrame(() => { success.style.opacity = '1'; });
+      }, 300);
+    });
+
+    field.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') btn.click();
+    });
+  }
+
+  componentWillUnmount() {
+    if (this._cleanNav) this._cleanNav();
+    if (this._cleanProgress) this._cleanProgress();
+    if (this._revealObs) this._revealObs.disconnect();
+  }
+
+  renderVals() { return {}; }
+}
+
+</script>
+</body>
+</html>

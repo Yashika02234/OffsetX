@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #ECEEE9; font-family: 'Space Grotesk', sans-serif; color: #0E1511; -webkit-font-smoothing: antialiased; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { vertical-align: top; }
+    p { text-wrap: pretty; }
+  </style>
+</helmet>
+
+<!-- ─── OUTER SHELL ──────────────────────────────────────────────── -->
+<div style="min-height: 100vh; padding: 0 0 120px;">
+
+  <!-- ─── MASTHEAD BAR ─────────────────────────────────────────── -->
+  <div style="background: #080E0B; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(26,255,224,0.12);">
+    <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: #1AFFE0; letter-spacing: 3px;">OFFSETX</span>
+    <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">COMING SOON PAGE — DESIGN SPECIFICATION · 2026</span>
+    <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 1px;">CONFIDENTIAL</span>
+  </div>
+
+  <!-- ─── MAIN CONTAINER ───────────────────────────────────────── -->
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 48px;">
+
+    <!-- ══════════════════════════════════════════════════════════
+         COVER
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 96px 0 80px; border-bottom: 1px solid #D0D8D2;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 32px;">DESIGN SPECIFICATION · VERSION 1.0</div>
+      <h1 style="font-size: clamp(40px, 6vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -2px; color: #080E0B; margin-bottom: 24px;">Coming Soon<br>Visual Design<br><span style="color: #0D7A5F;">Blueprint</span></h1>
+      <p style="font-size: 18px; font-weight: 300; line-height: 1.7; color: #4A6B58; max-width: 600px; margin-bottom: 48px;">A complete visual design specification for the OffsetX coming soon page. Every section, component, spacing value, motion behavior, and typographic decision documented to production precision.</p>
+      <div style="display: flex; gap: 48px;">
+        <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 6px;">AUTHOR</div><div style="font-size: 14px; color: #0E1511; font-weight: 500;">Sahil Khan · OffsetX</div></div>
+        <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 6px;">CONTACT</div><div style="font-size: 14px; color: #0E1511; font-weight: 500;">hello@offsetx.ai</div></div>
+        <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 6px;">DATE</div><div style="font-size: 14px; color: #0E1511; font-weight: 500;">July 2026</div></div>
+        <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 6px;">STATUS</div><div style="font-size: 14px; color: #0E1511; font-weight: 500;">Ready for Implementation</div></div>
+      </div>
+    </div>
+
+    <!-- ─── TABLE OF CONTENTS ────────────────────────────────── -->
+    <div style="padding: 64px 0; border-bottom: 1px solid #D0D8D2;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 32px;">TABLE OF CONTENTS</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">01 — Product Context</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 01</span></div>
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">02 — Global Design System</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 02</span></div>
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">03 — Component Library</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 03</span></div>
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">04 — Section Specifications</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 04</span></div>
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">05 — Responsive Design</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 05</span></div>
+        <div style="border-top: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">06 — Premium Details</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 06</span></div>
+        <div style="border-top: 1px solid #D0D8D2; border-bottom: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">07 — Design Director Critique</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 07</span></div>
+        <div style="border-top: 1px solid #D0D8D2; border-bottom: 1px solid #D0D8D2; padding: 16px 0; display: flex; justify-content: space-between; padding-right: 48px;"><span style="font-size: 14px; color: #0E1511; font-weight: 500;">08 — Implementation Blueprint</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #8AA898;">§ 08</span></div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 01 — PRODUCT CONTEXT
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s01">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 01 — PRODUCT CONTEXT</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 40px;">What this page must accomplish</h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 56px;">
+        <div style="background: #080E0B; padding: 28px; border: 1px solid rgba(26,255,224,0.12);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 16px;">CAPTURE INTENT</div>
+          <p style="font-size: 14px; color: #C8E6DA; line-height: 1.65; font-weight: 300;">Anyone who lands here is already warm. An email capture turns anonymous traffic into people we can follow up with.</p>
+        </div>
+        <div style="background: #080E0B; padding: 28px; border: 1px solid rgba(26,255,224,0.12);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 16px;">SIGNAL CREDIBILITY</div>
+          <p style="font-size: 14px; color: #C8E6DA; line-height: 1.65; font-weight: 300;">Investors, partners, and customers Google OffsetX after seeing LinkedIn posts or the PR article. They must find something serious — not an empty page.</p>
+        </div>
+        <div style="background: #080E0B; padding: 28px; border: 1px solid rgba(26,255,224,0.12);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 16px;">STATE THE THESIS</div>
+          <p style="font-size: 14px; color: #C8E6DA; line-height: 1.65; font-weight: 300;">One sentence of positioning so any visitor immediately understands what we're building and for whom — without needing a meeting.</p>
+        </div>
+      </div>
+
+      <div style="background: #F2F4F1; padding: 32px; border-left: 3px solid #0D7A5F; margin-bottom: 40px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">TONE OF VOICE</div>
+        <p style="font-size: 15px; color: #0E1511; line-height: 1.7; font-weight: 400;">Premium. Sophisticated. Confident. Minimal. Technical. Trustworthy. Editorial. Research-driven. Enterprise-ready. This is infrastructure software — it must feel like Linear, Stripe, or Anthropic built it, not like a Tailwind UI template.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+        <div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 16px;">PRIMARY AUDIENCE</div>
+          <div style="font-size: 14px; color: #4A6B58; line-height: 1.7;">
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #0E1511; font-weight: 500;">Climate-tech investors &amp; VCs</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #0E1511; font-weight: 500;">Corporate sustainability leads</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #0E1511; font-weight: 500;">Carbon market participants</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #0E1511; font-weight: 500;">Regulatory bodies &amp; compliance officers</div>
+            <div style="padding: 8px 0; color: #0E1511; font-weight: 500;">Potential team members</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8A1A1A; letter-spacing: 2px; margin-bottom: 16px;">THE PAGE MUST NOT FEEL LIKE</div>
+          <div style="font-size: 14px; line-height: 1.7;">
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #6B3030; text-decoration: line-through;">A startup template</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #6B3030; text-decoration: line-through;">A generic SaaS landing page</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #6B3030; text-decoration: line-through;">A climate NGO or green-energy brochure</div>
+            <div style="padding: 8px 0; border-bottom: 1px solid #D0D8D2; color: #6B3030; text-decoration: line-through;">A crypto website</div>
+            <div style="padding: 8px 0; color: #6B3030; text-decoration: line-through;">Marketing-heavy or AI-generated feeling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 02 — GLOBAL DESIGN SYSTEM
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s02">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 02 — GLOBAL DESIGN SYSTEM</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 16px;">Design language</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 64px;">The visual grammar is built on restraint. Every element earns its place. Color is functional — teal signals action or emphasis, never decoration. The grid is the only ornament. Whitespace is a design tool, not wasted space.</p>
+
+      <!-- 2.1 COLOR SYSTEM -->
+      <div style="margin-bottom: 64px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 24px;">2.1 — COLOR SYSTEM</div>
+        <table style="border: 1px solid #D0D8D2;">
+          <thead>
+            <tr style="background: #F2F4F1;">
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">TOKEN</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">SWATCH</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">HEX</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">USAGE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-bg</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #080E0B; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#080E0B</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Global page background. The foundation of everything.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-surface</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #0D1A14; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#0D1A14</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Cards, counter strip, raised surfaces. 0.5px teal-dim border.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-surface-2</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #0A1410; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#0A1410</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Nav bar behind blur. Slightly darker than surface.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2; background: #F8FBF9;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-accent</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #1AFFE0; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#1AFFE0</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;"><strong>Primary accent.</strong> Used for: wordmark, "trust layer" in H1, primary button fill, counter numbers, eyebrow labels. Never as background texture.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-border</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: rgba(26,255,224,0.1); border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">rgba(26,255,224,0.1)</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">All borders — cards, nav divider, table rules. Never full-opacity teal on borders.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-text-primary</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #DFF2EA; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#DFF2EA</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">H1, H2, H3, card titles. Off-white with a green cast — not pure white, which feels cold.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-text-body</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #C8E6DA; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#C8E6DA</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">All body copy. Slightly dimmer than primary text — creates effortless hierarchy.</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #0E1511;">--color-text-muted</td>
+              <td style="padding: 14px 16px;"><div style="width: 32px; height: 20px; background: #7AB8A0; border: 1px solid #D0D8D2;"></div></td>
+              <td style="padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58;">#7AB8A0</td>
+              <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Captions, secondary labels, card descriptions. One step further from primary.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 16px; padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #D0D8D2;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Border rule:</strong> The page brief explicitly states every border must use <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 6px; font-size: 11px;">rgba(26,255,224,0.1)</code> — the ghost of the teal accent. This creates the impression of a grid made of carbon measurement lines without any visual noise at full opacity.</p>
+        </div>
+      </div>
+
+      <!-- 2.2 TYPOGRAPHY -->
+      <div style="margin-bottom: 64px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 24px;">2.2 — TYPOGRAPHY SCALE</div>
+        <p style="font-size: 14px; color: #4A6B58; margin-bottom: 24px; line-height: 1.65;">Three typefaces, three distinct roles. No deviation. No mixing of roles.</p>
+
+        <!-- Type specimens on dark bg -->
+        <div style="background: #080E0B; padding: 40px; margin-bottom: 24px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 3px; margin-bottom: 32px;">LIVE TYPE SPECIMENS · SPACE GROTESK + SPACE MONO</div>
+
+          <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">DISPLAY / H1</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 56px; font-weight: 700; color: #DFF2EA; letter-spacing: -2px; line-height: 1.05;">Building the <span style="color: #1AFFE0;">trust layer</span><br>for compliance-grade<br>carbon markets.</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; margin-top: 12px;">Space Grotesk 700 · clamp(36px, 5.5vw, 72px) · tracking -1.5px · lh 1.05</div>
+          </div>
+
+          <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">SUBHEADING / H2</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #DFF2EA; letter-spacing: -0.8px; line-height: 1.2;">The carbon market is scaling without the infrastructure it needs.</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; margin-top: 12px;">Space Grotesk 700 · clamp(22px, 3vw, 36px) · tracking -0.8px · lh 1.2</div>
+          </div>
+
+          <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">BODY / SUBHEADING</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 300; color: #C8E6DA; line-height: 1.7; max-width: 640px;">We are building the data and compliance infrastructure that helps organisations generate trusted, audit-ready carbon intelligence for the next generation of climate regulations.</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; margin-top: 12px;">Space Grotesk 300 · 16–18px · lh 1.7 · color #C8E6DA</div>
+          </div>
+
+          <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">EYEBROW / LABEL</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; color: #1AFFE0; letter-spacing: 4px;">CARBON INTELLIGENCE INFRASTRUCTURE</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; margin-top: 12px;">Space Mono 700 · 10–12px · ALL CAPS · tracking 3–4px · color #1AFFE0</div>
+          </div>
+
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">COUNTER / STAT</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 60px; font-weight: 700; color: #1AFFE0; letter-spacing: -2px; line-height: 1;">20+</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; margin-top: 12px;">Space Grotesk 700 · 56–72px · tracking -2px · color #1AFFE0 · animated on scroll</div>
+          </div>
+        </div>
+
+        <table style="border: 1px solid #D0D8D2;">
+          <thead>
+            <tr style="background: #F2F4F1;">
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">ROLE</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">FAMILY</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">SIZE</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">WEIGHT</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">TRACKING</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">LINE-HEIGHT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">H1 Display</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Grotesk</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">clamp(36px, 5.5vw, 72px)</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">700</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">−1.5px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.05</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">H2 Section</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Grotesk</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">clamp(22px, 3vw, 36px)</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">700</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">−0.8px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.2</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">H3 Card</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Grotesk</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">clamp(16px, 1.5vw, 20px)</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">600</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">−0.3px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.3</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Body Large</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Grotesk</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">17–18px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">300</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">0</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.7</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Body</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Grotesk</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">14–15px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">400</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">0</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.65</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Eyebrow / Label</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Mono</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">10–12px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">700</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">3–4px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Caption / Meta</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">Space Mono</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">10–11px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">400</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1–2px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1.4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.3 GRID & LAYOUT -->
+      <div style="margin-bottom: 64px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 24px;">2.3 — GRID &amp; LAYOUT SYSTEM</div>
+        <table style="border: 1px solid #D0D8D2; margin-bottom: 24px;">
+          <thead>
+            <tr style="background: #F2F4F1;">
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">BREAKPOINT</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">RANGE</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">COLUMNS</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">CONTAINER</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">MARGIN</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">GAP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Desktop</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">≥ 1280px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">12</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">max-width: 1280px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">80px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">24px</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Tablet</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">768–1279px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">8</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">100%</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">40px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">20px</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Mobile</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">&lt; 640px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">4</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">100%</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">20px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">16px</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #D0D8D2;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Vertical rhythm:</strong> The base unit is 8px. All vertical spacing is a multiple of 8: 8, 16, 24, 32, 40, 48, 64, 80, 96, 120, 160. Section vertical padding: 120px desktop, 80px tablet, 64px mobile. Hero: 160px top, 100px bottom.</p>
+        </div>
+      </div>
+
+      <!-- 2.4 MOTION SYSTEM -->
+      <div style="margin-bottom: 64px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 24px;">2.4 — MOTION SYSTEM</div>
+        <p style="font-size: 14px; color: #4A6B58; margin-bottom: 24px; line-height: 1.65; max-width: 680px;">Every animation has purpose. Nothing moves for the sake of movement. Reduced-motion users get no animations. The motion vocabulary is: fade up, fade in, count up. That is all.</p>
+        <table style="border: 1px solid #D0D8D2; margin-bottom: 24px;">
+          <thead>
+            <tr style="background: #F2F4F1;">
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">ANIMATION</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">TRIGGER</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">DURATION</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">EASING</th>
+              <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">TRANSFORM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Hero entrance</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Page load</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">600ms staggered</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">cubic-bezier(0,0,0.2,1)</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">opacity 0→1, translateY 24px→0</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Section reveal</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">IntersectionObserver</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">500ms per element</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">cubic-bezier(0,0,0.2,1)</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">opacity 0→1, translateY 20px→0</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Stagger delay</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Per sibling element</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">+80ms each</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">—</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Cards, list rows</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Counter count-up</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">IntersectionObserver</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">1400ms</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">ease-out cubic: 1−(1−p)³</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">requestAnimationFrame number interpolation</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Hover: card</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">mouseenter</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">200ms</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">ease</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Left border grows 0→100% height</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;">
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Hover: button</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">mouseenter</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">150ms</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">ease</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Primary: brightness 1.1. Ghost: bg rgba(26,255,224,0.06)</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Nav scroll</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">scroll &gt; 10px</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">300ms</td>
+              <td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">ease</td>
+              <td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Border-bottom fades in, backdrop-filter activates</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.5 BACKGROUND -->
+      <div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 24px;">2.5 — BACKGROUND TREATMENT</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div>
+            <div style="background: #080E0B; padding: 32px; height: 180px; position: relative; overflow: hidden; border: 1px solid rgba(26,255,224,0.1); margin-bottom: 12px;">
+              <!-- Simulated vertical grid lines -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(90deg, rgba(26,255,224,0.03) 0px, rgba(26,255,224,0.03) 1px, transparent 1px, transparent 120px); pointer-events: none;"></div>
+              <!-- Left accent bar -->
+              <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: rgba(26,255,224,0.12);"></div>
+              <div style="position: relative; font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 12px;">GRID LINES VISIBLE AT OPACITY 0.03</div>
+              <div style="position: relative; font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #1AFFE0; letter-spacing: -0.5px;">Trust layer</div>
+              <div style="position: absolute; left: 4px; top: 0; font-family: 'Space Mono', monospace; font-size: 8px; color: rgba(26,255,224,0.3); writing-mode: vertical-rl; padding: 8px 0; letter-spacing: 1px;">ACCENT BAR</div>
+            </div>
+            <p style="font-size: 12px; color: #8AA898; font-family: 'Space Mono', monospace; letter-spacing: 1px;">BACKGROUND ANATOMY</p>
+          </div>
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 16px;">IMPLEMENTATION SPEC</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 16px;"><strong style="color: #0E1511;">Vertical grid lines:</strong> <code style="font-family: 'Space Mono', monospace; background: #E8EDE9; padding: 2px 6px; font-size: 11px;">body::before</code> pseudo-element with <code style="font-family: 'Space Mono', monospace; background: #E8EDE9; padding: 2px 6px; font-size: 11px;">repeating-linear-gradient(90deg, ...)</code> every 120px. Opacity ~0.025. Pointer-events: none. Position: fixed, full viewport.</p>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 16px;"><strong style="color: #0E1511;">Left accent bar:</strong> 4px wide, full-page height, teal at ~12% opacity. Sits at the absolute left edge of the body. Not a border — a visual anchor.</p>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65;"><strong style="color: #0E1511;">Explicit prohibitions from brief:</strong> No gradients. No illustrations. No stock photos. No green leaves. No glowing blobs. No floating particles. No 3D objects. No abstract AI graphics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 03 — COMPONENT LIBRARY
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s03">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 03 — COMPONENT LIBRARY</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 48px;">Every element, specified</h2>
+
+      <!-- NAVIGATION -->
+      <div style="margin-bottom: 56px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">3.1 — NAVIGATION</div>
+        <!-- Rendered nav specimen -->
+        <div style="background: rgba(8,14,11,0.92); border-bottom: 1px solid rgba(26,255,224,0.1); padding: 0 80px; height: 56px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; backdrop-filter: blur(12px);">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: #1AFFE0; letter-spacing: 3px;">OFFSETX</span>
+          <div style="display: flex; align-items: center; gap: 40px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">WHY NOW</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">WHAT WE BUILD</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">RESEARCH</span>
+            <div style="border: 1px solid rgba(26,255,224,0.4); padding: 8px 20px; display: flex; align-items: center; gap: 8px;">
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 2px;">JOIN EARLY ACCESS</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; background: #F2F4F1; padding: 24px;">
+          <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 8px;">POSITION</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.5;">Fixed. Top: 0. Full width. z-index above all content.</p></div>
+          <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 8px;">BACKGROUND</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.5;"><code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 4px; font-size: 11px;">rgba(8,14,11,0.92)</code> + <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 4px; font-size: 11px;">backdrop-filter: blur(12px)</code></p></div>
+          <div><div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 8px;">SCROLL BEHAVIOR</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.5;">Bottom border appears after 10px scroll. Smooth scroll anchors. Nav links hide on mobile (&lt;640px).</p></div>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div style="margin-bottom: 56px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">3.2 — BUTTONS</div>
+        <div style="background: #080E0B; padding: 40px; display: flex; gap: 24px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
+          <button style="background: #1AFFE0; border: none; padding: 14px 28px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #080E0B; cursor: pointer; display: flex; align-items: center; gap: 10px;">JOIN EARLY ACCESS →</button>
+          <button style="background: transparent; border: 1px solid rgba(26,255,224,0.3); padding: 13px 27px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #1AFFE0; cursor: pointer;">TALK TO THE FOUNDER</button>
+          <button style="background: transparent; border: none; padding: 0; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 400; letter-spacing: 2px; color: #7AB8A0; cursor: pointer; display: flex; align-items: center; gap: 8px; text-decoration: underline; text-underline-offset: 4px;">READ RESEARCH →</button>
+        </div>
+        <table style="border: 1px solid #D0D8D2;">
+          <thead>
+            <tr style="background: #F2F4F1;"><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">TYPE</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">DEFAULT</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">HOVER</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">FOCUS</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">BORDER-RADIUS</th></tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Primary</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">bg #1AFFE0, text #080E0B, 44px height</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">filter: brightness(1.1), 150ms</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">outline: 2px solid #1AFFE0, offset 2px</td><td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">0 — sharp corners only</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Ghost</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">transparent bg, 1px border rgba(26,255,224,0.3), text #1AFFE0</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">bg rgba(26,255,224,0.06), border rgba(26,255,224,0.6)</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Same as primary focus</td><td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">0</td></tr>
+            <tr><td style="padding: 12px 16px; font-size: 13px; color: #0E1511; font-weight: 600;">Text link</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">No background, underline 1px, offset 4px, color #7AB8A0</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">color #1AFFE0, translateX 2px</td><td style="padding: 12px 16px; font-size: 13px; color: #4A6B58;">Standard outline</td><td style="padding: 12px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CARDS -->
+      <div style="margin-bottom: 56px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">3.3 — CARDS</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(26,255,224,0.1); margin-bottom: 20px;">
+          <!-- Card default -->
+          <div style="background: #0D1A14; padding: 28px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 3px; height: 0%; background: #1AFFE0; transition: height 300ms ease;"></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 14px;">FRAGMENTATION</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #DFF2EA; margin-bottom: 12px; letter-spacing: -0.3px;">No unified carbon data layer</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">Carbon data is scattered across dozens of registries, methodologies, and geographies with no unified view.</div>
+            <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 9px; color: #3D5A48; letter-spacing: 1px;">← DEFAULT STATE · LEFT BORDER AT 0%</div>
+          </div>
+          <!-- Card hover -->
+          <div style="background: #0D1A14; padding: 28px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: #1AFFE0;"></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 14px; padding-left: 12px;">FRAGMENTATION</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #DFF2EA; margin-bottom: 12px; letter-spacing: -0.3px; padding-left: 12px;">No unified carbon data layer</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65; padding-left: 12px;">Carbon data is scattered across dozens of registries, methodologies, and geographies with no unified view.</div>
+            <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 1px; padding-left: 12px;">← HOVER STATE · LEFT BORDER AT 100% · 300ms</div>
+          </div>
+        </div>
+        <div style="padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #D0D8D2;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Card anatomy:</strong> Background #0D1A14. All borders: 0.5px rgba(26,255,224,0.1) — not a colored square, a membrane. Left accent bar grows from 0 to 100% height on hover (not a stripe — a reveal). No box-shadow. No border-radius. Padding: 28px desktop, 24px mobile.</p>
+        </div>
+      </div>
+
+      <!-- FORM / EMAIL INPUT -->
+      <div style="margin-bottom: 56px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">3.4 — EMAIL INPUT + SUCCESS STATE</div>
+        <div style="background: #080E0B; padding: 40px; border: 1px solid rgba(26,255,224,0.1); margin-bottom: 16px;">
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 24px;">DEFAULT STATE</div>
+          <div style="display: flex; gap: 0; margin-bottom: 32px;">
+            <input type="email" placeholder="your@email.com" style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(26,255,224,0.15); border-right: none; padding: 14px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #DFF2EA; outline: none; max-width: 400px;" readonly="">
+            <button style="background: #1AFFE0; border: none; padding: 14px 28px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #080E0B; cursor: pointer; white-space: nowrap;">JOIN EARLY ACCESS →</button>
+          </div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 2px; margin-bottom: 16px;">SUCCESS STATE</div>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 20px; border: 1px solid rgba(26,255,224,0.2); background: rgba(26,255,224,0.04);">
+            <div style="width: 20px; height: 20px; border: 1px solid #1AFFE0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><div style="width: 8px; height: 8px; background: #1AFFE0;"></div></div>
+            <div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; letter-spacing: 2px; margin-bottom: 4px;">YOU'RE ON THE LIST</div><div style="font-size: 13px; color: #7AB8A0; font-weight: 300;">We'll reach out when access opens. Thank you.</div></div>
+          </div>
+        </div>
+        <div style="padding: 16px 20px; background: #FFF8F0; border-left: 3px solid #D4A06A;">
+          <p style="font-size: 13px; color: #5A4020; line-height: 1.6;"><strong>⚠ Engineering note from brief:</strong> The form currently shows a success state only — it does not capture emails yet. Confirm with Sahil which service to connect (Mailchimp / Notion / Google Forms) before deployment. The form UX must be identical regardless of backend.</p>
+        </div>
+      </div>
+
+      <!-- BADGE / COUNTER -->
+      <div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">3.5 — COUNTER DISPLAY UNIT</div>
+        <div style="background: #0D1A14; padding: 40px; border: 1px solid rgba(26,255,224,0.1); display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; margin-bottom: 16px;">
+          <div style="padding: 20px 24px; border-right: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; color: #1AFFE0; letter-spacing: -2px; line-height: 1; margin-bottom: 8px;">20+</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">EXPERT INTERVIEWS</div>
+          </div>
+          <div style="padding: 20px 24px; border-right: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; color: #1AFFE0; letter-spacing: -2px; line-height: 1; margin-bottom: 8px;">12+</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">STAKEHOLDER GROUPS</div>
+          </div>
+          <div style="padding: 20px 24px; border-right: 1px solid rgba(26,255,224,0.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; color: #1AFFE0; letter-spacing: -2px; line-height: 1; margin-bottom: 8px;">4</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">GEOGRAPHIES</div>
+          </div>
+          <div style="padding: 20px 24px;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; color: #1AFFE0; letter-spacing: -2px; line-height: 1; margin-bottom: 8px;">30+</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7AB8A0; letter-spacing: 2px;">HOURS OF RESEARCH</div>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: #8AA898; font-family: 'Space Mono', monospace; letter-spacing: 1px;">ANIMATION: requestAnimationFrame · ease-out cubic: 1−(1−p)³ · 1400ms · triggered by IntersectionObserver</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 04 — SECTION SPECIFICATIONS
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s04">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 04 — SECTION SPECIFICATIONS</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 12px;">Page layout, section by section</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 64px;">Eight sections. Each specified to production precision: layout, hierarchy, type, spacing, motion, hover, responsiveness. Every value is intentional.</p>
+
+      <!-- ── SECTION 01: NAV ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">01</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Navigation Bar</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">STICKY · FIXED</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">LAYOUT</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 20px;">Full-width fixed bar. 56px height. Horizontal flex: wordmark left, links + CTA right, 40px gaps between nav items. Container matches page max-width (1280px), centered. The bar extends full viewport width — the background blur fills edge to edge.</p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px; margin-top: 24px;">VISUAL HIERARCHY</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 8px;"><strong style="color: #0E1511;">1st →</strong> OFFSETX wordmark in teal — brand anchor</p>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 8px;"><strong style="color: #0E1511;">2nd →</strong> JOIN EARLY ACCESS ghost button — primary action</p>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 20px;"><strong style="color: #0E1511;">3rd →</strong> Nav links — orientation aids</p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px; margin-top: 4px;">SCROLL BEHAVIOR</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65;">At scroll position 0: bottom border opacity 0. After 10px: border transitions to rgba(26,255,224,0.1) over 300ms. The blur is always active. Nav links smooth-scroll to their section anchors. On mobile (&lt;640px): nav links hidden, only wordmark + CTA remain.</p>
+          </div>
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">TYPOGRAPHY</div>
+            <table style="border: 1px solid #D0D8D2; margin-bottom: 20px;">
+              <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 8px 12px; font-size: 12px; color: #0E1511; font-weight: 600;">Wordmark</td><td style="padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 10px; color: #4A6B58;">Mono 700 · 13px · 3px track</td></tr>
+              <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 8px 12px; font-size: 12px; color: #0E1511; font-weight: 600;">Nav links</td><td style="padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 10px; color: #4A6B58;">Mono 700 · 10px · 2px track</td></tr>
+              <tr><td style="padding: 8px 12px; font-size: 12px; color: #0E1511; font-weight: 600;">CTA button</td><td style="padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 10px; color: #4A6B58;">Mono 700 · 10px · 2px track</td></tr>
+            </table>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">HOVER STATES</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Nav links: color transition to #DFF2EA, 150ms ease. Bottom border-bottom 1px #1AFFE0 appears on hover. CTA: ghost button hover (bg rgba(26,255,224,0.06), border brightens), 150ms.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 02: HERO ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">02</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Hero Section</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">FULL-WIDTH · LEFT-ALIGNED</span>
+        </div>
+
+        <!-- Visual mockup of hero -->
+        <div style="background: #080E0B; padding: 80px; margin-bottom: 24px; position: relative; overflow: hidden; min-height: 340px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(90deg, rgba(26,255,224,0.025) 0px, rgba(26,255,224,0.025) 1px, transparent 1px, transparent 120px);"></div>
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: rgba(26,255,224,0.12);"></div>
+          <div style="position: relative; max-width: 860px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 24px;">CARBON INTELLIGENCE INFRASTRUCTURE</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 56px); font-weight: 700; color: #DFF2EA; letter-spacing: -2px; line-height: 1.07; margin-bottom: 24px;">Building the <span style="color: #1AFFE0;">trust layer</span><br>for compliance-grade<br>carbon markets.</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 300; color: #C8E6DA; line-height: 1.7; max-width: 620px; margin-bottom: 40px;">We are building the data and compliance infrastructure that helps organisations generate trusted, audit-ready carbon intelligence for the next generation of climate regulations.</div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <button style="background: #1AFFE0; border: none; padding: 14px 28px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #080E0B; cursor: pointer;">JOIN EARLY ACCESS →</button>
+              <button style="background: transparent; border: 1px solid rgba(26,255,224,0.3); padding: 13px 27px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #1AFFE0; cursor: pointer;">TALK TO THE FOUNDER</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 20px;">
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">LAYOUT</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">12-column grid. Content left-aligned, max-width 860px. Right 2 columns: empty — confidence through whitespace. Padding: 160px top, 100px bottom. Container margin: 80px each side.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">EYE PATH</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong>1st</strong> → teal eyebrow (small, accent)<br><strong>2nd</strong> → H1 mass — "Building the" then "trust layer" (teal — eyes pause)<br><strong>3rd</strong> → Subheading body block<br><strong>4th</strong> → Dual CTAs</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">ENTRANCE ANIMATION</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">t=0ms: eyebrow fades in (opacity 0→1, 400ms)<br>t=150ms: H1 fade-up (translateY 24px→0, 600ms)<br>t=500ms: subhead fades in (400ms)<br>t=700ms: CTAs slide up (300ms)</p>
+          </div>
+        </div>
+        <div style="padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #0D7A5F;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Typography precision (from brief):</strong> H1 font-size: <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 4px; font-size: 11px;">clamp(36px, 5.5vw, 72px)</code>. "trust layer" colored #1AFFE0, remainder #DFF2EA. Left vertical accent bar: 4px wide, full page height, rgba(26,255,224,0.12), body left edge. Primary CTA links to <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 4px; font-size: 11px;">#follow</code> section. Ghost CTA: <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 2px 4px; font-size: 11px;">mailto:hello@offsetx.ai</code>.</p>
+        </div>
+      </div>
+
+      <!-- ── SECTION 03: PROBLEM ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">03</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">The Problem — Why Now</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">2 × 3 GRID · 6 CARDS</span>
+        </div>
+
+        <!-- 2x3 grid specimen -->
+        <div style="background: #080E0B; padding: 48px; margin-bottom: 24px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 8px;">03 — THE PROBLEM</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #DFF2EA; letter-spacing: -0.8px; margin-bottom: 40px; line-height: 1.2;">The carbon market is scaling<br>without the infrastructure it needs.</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(26,255,224,0.08);">
+            <div style="background: #0D1A14; padding: 24px; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 0; left: 0; width: 0px; height: 100%; background: #1AFFE0; transition: width 200ms;"></div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">FRAGMENTATION</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">No unified carbon data layer</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">Data is scattered across dozens of registries, methodologies, and geographies with no consolidated view.</div>
+            </div>
+            <div style="background: #0D1A14; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">VERIFICATION GAP</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">No standard for credit quality</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">No standardised way to verify carbon credit quality across registries and jurisdictions — buyers cannot trust what they're buying.</div>
+            </div>
+            <div style="background: #0D1A14; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">INFRASTRUCTURE</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">No universal trust layer</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">No universal trust layer exists across carbon registries, markets, and geographies. The market is scaling without the infrastructure it needs.</div>
+            </div>
+            <div style="background: #0D1A14; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">COMPLIANCE OPACITY</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">Regulatory exposure is opaque</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">Organisations cannot easily map their regulatory exposure under CBAM, Article 6, and evolving national frameworks.</div>
+            </div>
+            <div style="background: #0D1A14; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">TRUST DEFICIT</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">Greenwashing eroded confidence</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">Greenwashing scandals have damaged market credibility. Buyers can't verify what they're paying for without third-party tooling.</div>
+            </div>
+            <div style="background: #0D1A14; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 10px;">MARKET INTELLIGENCE</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; margin-bottom: 8px; letter-spacing: -0.3px;">Pricing &amp; supply data is fragmented</div>
+              <div style="font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.6;">Real-time data on supply, demand, pricing, and registry activity is fragmented across proprietary sources with no unified access.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">CARD HOVER INTERACTION</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.65;">On mouseenter: a 3px teal left border grows from 0px to the full card height over 300ms ease. Content shifts 12px right (padding-left increases). On mouseleave: reverses in 200ms. The effect is subtle — a flicker of measurement precision, not a dramatic transformation.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">SPACING &amp; STRUCTURE</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.65;">Section header above grid: eyebrow label + H2 headline. Grid gap: 1px with section background color (#080E0B) as the "border" — creating hairline dividers. Card padding: 28px desktop, 20px tablet. Section padding: 120px top/bottom.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 04: WHAT WE BUILD ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">04</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">What We're Building</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">NUMBERED LIST · TABLE LAYOUT</span>
+        </div>
+        <div style="background: #080E0B; padding: 48px; margin-bottom: 24px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 8px;">04 — WHAT WE'RE BUILDING</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #DFF2EA; letter-spacing: -0.8px; margin-bottom: 40px; line-height: 1.2;">Five capabilities. One platform.</div>
+          <!-- Table rows -->
+          <div style="border-top: 1px solid rgba(26,255,224,0.08);">
+            <div style="display: grid; grid-template-columns: 56px 200px 1fr; gap: 0; border-bottom: 1px solid rgba(26,255,224,0.08); padding: 20px 0; align-items: start;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.4;">[01]</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #DFF2EA; padding-right: 24px; letter-spacing: -0.3px;">Compliance intelligence platform</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">Audit-ready reporting mapped to CBAM, Article 6, and national carbon regulations. Output that survives regulatory scrutiny.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px 200px 1fr; gap: 0; border-bottom: 1px solid rgba(26,255,224,0.08); padding: 20px 0; align-items: start;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.4;">[02]</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #DFF2EA; padding-right: 24px; letter-spacing: -0.3px;">Registry connectivity layer</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">Unified data access across Verra, Gold Standard, CAR, ACR, and regional registries. One API, every standard.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px 200px 1fr; gap: 0; border-bottom: 1px solid rgba(26,255,224,0.08); padding: 20px 0; align-items: start;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.4;">[03]</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #DFF2EA; padding-right: 24px; letter-spacing: -0.3px;">Organisational carbon profiling</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">Risk and opportunity mapping for industrial companies navigating the compliance transition. Know your exposure before your regulator does.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px 200px 1fr; gap: 0; border-bottom: 1px solid rgba(26,255,224,0.08); padding: 20px 0; align-items: start;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.4;">[04]</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #DFF2EA; padding-right: 24px; letter-spacing: -0.3px;">Carbon market intelligence</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">Structured data on credit supply, demand, registry activity, and compliance exposure. The Bloomberg terminal for carbon.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px 200px 1fr; gap: 0; padding: 20px 0; align-items: start;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.4;">[05]</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #DFF2EA; padding-right: 24px; letter-spacing: -0.3px;">Trust and verification infrastructure</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 300; color: #7AB8A0; line-height: 1.65;">UNIC — Universal Carbon Identifier — traceable across registries and geographies. A permanent fingerprint for every credit.</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #D0D8D2;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Layout decision:</strong> Three-column table: [number] · [title] · [description]. The bracket notation for numbers ([01]) uses Space Mono — it reads as infrastructure notation, not bullet points. Horizontal rules between rows at opacity rgba(26,255,224,0.08). Hover state: entire row background shifts subtly to #0D1A14, left number nudges +4px, 150ms.</p>
+        </div>
+      </div>
+
+      <!-- ── SECTION 05: DISCOVERY COUNTER ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">05</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Discovery Counter</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">4 STATS · FULL-WIDTH STRIP</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">LAYOUT</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 16px;">Full-width strip in #0D1A14. Four equal columns, no outer margins — this section bleeds to viewport edges. Internal column dividers: 1px rgba(26,255,224,0.08). Section padding: 80px top/bottom. No heading above the counters — the numbers speak for themselves.</p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px; margin-top: 20px;">COUNTER ANIMATION SPEC</div>
+            <div style="background: #080E0B; padding: 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; line-height: 1.8;">
+              engine: requestAnimationFrame<br>
+              easing: 1 − (1 − progress)³<br>
+              duration: 1400ms<br>
+              trigger: IntersectionObserver<br>
+              threshold: 0.3<br>
+              suffix: "+" appended after count
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">VISUAL HIERARCHY</div>
+            <p style="font-size: 14px; color: #4A6B58; line-height: 1.65; margin-bottom: 16px;"><strong>1st →</strong> The numbers themselves at 72px — dominant, teal, impossible to ignore<br><strong>2nd →</strong> Labels below in Space Mono, muted — context for the number<br><strong>3rd →</strong> The animation itself — the counting effect draws the eye and signals live data</p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px; margin-top: 20px;">TYPOGRAPHY</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Numbers: Space Grotesk 700, 72px desktop / 48px mobile, tracking -2px, #1AFFE0. Labels: Space Mono 700, 11px, ALL CAPS, 3px tracking, #7AB8A0. No unit labels — "Expert Interviews" not "20+ Expert Interviews" (the + is part of the number).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 06: RESEARCH ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">06</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Research &amp; Signals</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">2 × 3 GRID · EDITORIAL</span>
+        </div>
+        <!-- Research grid specimen -->
+        <div style="background: #080E0B; padding: 48px; margin-bottom: 24px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 8px;">06 — RESEARCH &amp; SIGNALS</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #DFF2EA; letter-spacing: -0.8px; margin-bottom: 40px; line-height: 1.2;">Our perspective on what's coming.</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(26,255,224,0.08);">
+            <div style="background: #080E0B; padding: 24px; border-top: 2px solid rgba(26,255,224,0.12);">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">REGULATION</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">CBAM: What the Q1 2026 certificate price means for European industrial imports</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px; display: flex; align-items: center; gap: 8px;">READ ON LINKEDIN <span style="opacity: 0; transition: opacity 150ms, transform 150ms; transform: translateX(-4px);">→</span></div>
+            </div>
+            <div style="background: #080E0B; padding: 24px; border-top: 2px solid rgba(26,255,224,0.12);">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">MARKET</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">Why the VCM contracted — and what compliance demand means for recovery</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">READ ON LINKEDIN →</div>
+            </div>
+            <div style="background: #080E0B; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">TECHNOLOGY</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">What Digital MRV can and cannot do: an honest assessment of satellite limits</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">READ ON LINKEDIN →</div>
+            </div>
+            <div style="background: #080E0B; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">GOVERNANCE</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">Article 6 after COP29: what the Paris Agreement rulebook means for compliance carbon buyers</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">READ ON LINKEDIN →</div>
+            </div>
+            <div style="background: #080E0B; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">METHODOLOGY</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">Registry methodology gaps: how 23 standards create 23 different definitions of additionality</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">READ ON LINKEDIN →</div>
+            </div>
+            <div style="background: #080E0B; padding: 24px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 3px; margin-bottom: 12px;">INSIGHT</div>
+              <div style="font-size: 15px; font-weight: 600; color: #DFF2EA; line-height: 1.45; letter-spacing: -0.3px; margin-bottom: 16px;">The industrial buyer's dilemma: procurement strategy in a compliance-driven voluntary market</div>
+              <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">READ ON LINKEDIN →</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 16px 20px; background: #FFF8F0; border-left: 3px solid #D4A06A;">
+          <p style="font-size: 13px; color: #5A4020; line-height: 1.6;"><strong>⚠ Verification required (from brief):</strong> Articles 4–6 above are design placeholders. All 6 article titles correspond to real LinkedIn posts. Confirm correct URLs with Sahil Khan before publishing. Review all interview quotes are correctly anonymised before going live. Confirm stakeholder geography attribution is accurate in each section.</p>
+        </div>
+        <div style="margin-top: 16px; padding: 16px 20px; background: #F2F4F1; border-left: 3px solid #D0D8D2;">
+          <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;"><strong style="color: #0E1511;">Card hover interaction:</strong> On hover, a 2px bottom-border teal line sweeps from left to right (scaleX 0→1, transform-origin left, 250ms ease). The "READ ON LINKEDIN →" arrow becomes visible (opacity 0→1) and slides 4px right. The card background brightens slightly to rgba(26,255,224,0.025). Cards are full anchor tags — entire card is clickable.</p>
+        </div>
+      </div>
+
+      <!-- ── SECTION 07: EMAIL CAPTURE ── -->
+      <div style="margin-bottom: 64px;">
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">07</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Email Capture — Follow / Early Access</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">CENTERED · CTA SECTION</span>
+        </div>
+        <div style="background: #080E0B; padding: 80px 48px; text-align: center; margin-bottom: 24px; border: 1px solid rgba(26,255,224,0.1);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 24px;">07 — JOIN EARLY ACCESS</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #DFF2EA; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">Be among the first organisations<br>to access OffsetX.</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 300; color: #7AB8A0; line-height: 1.7; margin-bottom: 40px;">We're onboarding a select group of compliance teams and carbon market participants. No commitments — just early access.</div>
+          <div style="display: flex; justify-content: center; gap: 0; max-width: 520px; margin: 0 auto;">
+            <input type="email" placeholder="your@email.com" style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(26,255,224,0.15); border-right: none; padding: 14px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #DFF2EA; outline: none;" readonly="">
+            <button style="background: #1AFFE0; border: none; padding: 14px 28px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #080E0B; cursor: pointer; white-space: nowrap;">JOIN →</button>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">LAYOUT</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Centered composition within container. Eyebrow → H2 → subtext → email input row. No side-by-side columns here — all content stacks vertically on a single center axis. This creates isolation and gravity.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">INPUT STATES</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Focus: input border rgba(26,255,224,0.4), subtle glow. Valid email: border green at 30% opacity. Submit: button brightness 0.9 (press feel). Success: entire form fades out, replaced by confirmation block with checkmark icon.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 2px; margin-bottom: 12px;">MOBILE</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Input and button stack vertically on mobile. Button becomes full-width. H2 shrinks to 26px. Padding reduces to 60px top/bottom. Everything remains centered.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 08: FOOTER ── -->
+      <div>
+        <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #080E0B;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; color: #1AFFE0; font-weight: 700;">08</span>
+          <h3 style="font-size: 22px; font-weight: 700; color: #080E0B; letter-spacing: -0.5px;">Footer</h3>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; margin-left: auto;">MINIMAL · ANCHORING</span>
+        </div>
+        <div style="background: #080E0B; border-top: 1px solid rgba(26,255,224,0.1); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: #1AFFE0; letter-spacing: 3px;">OFFSETX</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 2px;">OFFSETX · INTERNAL BRIEF · 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #3D7A60; letter-spacing: 1px;">hello@offsetx.ai · offsetx.io</span>
+        </div>
+        <p style="font-size: 13px; color: #4A6B58; line-height: 1.65;">Footer is intentionally minimal. Left: wordmark (teal). Center: copyright/date in muted teal. Right: contact. No navigation links repeated. No social icons. No tagline. The restraint at the bottom signals the same confidence as the whitespace at the top. Padding: 40px vertical.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 05 — RESPONSIVE DESIGN
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s05">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 05 — RESPONSIVE DESIGN</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 12px;">Three breakpoints, zero compromise</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 48px;">Mobile breakpoint: 640px. Everything adapts — nothing simply "stacks". Each layout change is intentional.</p>
+
+      <table style="border: 1px solid #D0D8D2; margin-bottom: 32px;">
+        <thead>
+          <tr style="background: #F2F4F1;">
+            <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">SECTION</th>
+            <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">DESKTOP (≥1280px)</th>
+            <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">TABLET (768–1279px)</th>
+            <th style="padding: 12px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">MOBILE (&lt;640px)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Navigation</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Wordmark + all 3 nav links + ghost CTA</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Wordmark + all 3 nav links + ghost CTA (smaller text)</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Wordmark only + ghost CTA. Nav links hidden. No hamburger — the single CTA is sufficient.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Hero</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">H1 72px. 160px top padding. CTAs in row. Max-width 860px content.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">H1 ~48px. 120px top padding. CTAs still in row. Content full width.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">H1 36px. 100px top (below nav). Subhead 15px. CTAs stack vertically, both full-width. No side margins — 20px each side.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Problem grid</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">2×3 grid. 28px card padding.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">2×3 grid. Slightly compressed. 24px padding.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">1-column. 6 cards stacked. 20px padding. Card titles 14px.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">What we build</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">3-column table: [num] · title · desc</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">3-column table, description column narrower</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">2-column: [num] + title. Description drops below title. No side-by-side desc.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Discovery counter</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">4 columns horizontal. 72px numbers.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">4 columns horizontal. 52px numbers.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">2×2 grid. 48px numbers. Dividers between all 4 cells.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Research grid</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">2×3 grid. Theme badge visible.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">2×3 grid. Slightly narrower cards.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">1-column. 6 cards stacked. Theme badges hidden on mobile (per brief).</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D0D8D2;">
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Email capture</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Centered. Input + button in one row. Max-width 520px.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Centered. Same as desktop.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Input stacks above button. Both full-width. H2 26px.</td>
+          </tr>
+          <tr>
+            <td style="padding: 14px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Footer</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">3-item horizontal row.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58; border-right: 1px solid #D0D8D2;">3-item horizontal row.</td>
+            <td style="padding: 14px 16px; font-size: 13px; color: #4A6B58;">Stacks vertically. Centered. Wordmark top, contact below.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 06 — PREMIUM DETAILS
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s06">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 06 — PREMIUM DETAILS</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 12px;">The details that separate good from excellent</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 48px;">These are the micro-decisions that the user never consciously notices — but that make the page feel premium, considered, and trustworthy. Each one is deliberately small.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #D0D8D2;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">01</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Scroll-linked nav border</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">Nav bottom-border fades from transparent to rgba(26,255,224,0.1) after 10px scroll. 300ms ease. Signals context without visual shock.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">02</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">H1 word-by-word reveal</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">On page load, each word of the H1 fades up individually with 40ms stagger. Reads as intentional precision, not a template transition.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">03</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Eyebrow label blinking cursor</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">On first load only, the eyebrow label "types in" with a blinking cursor. After 1 pass, cursor disappears. Signals a live terminal without being gimmicky.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">04</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Button arrow nudge on hover</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">The "→" in "JOIN EARLY ACCESS →" translates +3px on button hover, 150ms ease. Implies momentum.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">05</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Counter suffix animation</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">The "+" suffix on stats (20+, 12+, 30+) fades in 200ms after the number finishes counting. Not simultaneous — a beat of pause, then the plus sign.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">06</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Focus ring system</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">All interactive elements: 2px outline #1AFFE0, 2px offset on focus. Never the browser default blue. Keyboard users get the same premium experience.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">07</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Email input focus glow</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">On focus, email input border transitions from rgba(26,255,224,0.15) to rgba(26,255,224,0.4). Very subtle box-shadow: 0 0 0 3px rgba(26,255,224,0.06). 200ms ease.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">08</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Research card link sweep</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">On card hover, a 1px bottom border sweeps left-to-right with scaleX 0→1, transform-origin: left, 250ms ease. Reads as an underline being drawn in real time.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">09</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Reduced-motion safety</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;"><code style="font-family: 'Space Mono', monospace; background: #E8EDE9; padding: 1px 4px; font-size: 10px;">@media (prefers-reduced-motion: reduce)</code> disables all transitions, animations, counter animations. Content renders instantly in place.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">10</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Page-load progress bar</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">A 1px teal progress bar sweeps across the very top of the viewport on page load (above the nav). Opacity fades to 0 on completion. 800ms total.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">11</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Smooth anchor scrolling</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;"><code style="font-family: 'Space Mono', monospace; background: #E8EDE9; padding: 1px 4px; font-size: 10px;">scroll-behavior: smooth</code> + scroll-margin-top: 72px on all section anchors (clears the fixed nav height + 16px breathing room).</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">12</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Wordmark hover state</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">On nav wordmark hover, a very subtle white flash (brightness 1.05) fades in then out over 200ms. Not a color change — a shimmer. Signals it's a link without breaking the palette.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">13</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Section label fade-in timing</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">When a section scrolls into view, the eyebrow label fades in at t=0ms, then the H2 fades at t=80ms. The sequence mirrors how a document renders — metadata before content.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">14</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">No animation on second visit</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">sessionStorage flag prevents hero entrance animation from replaying on refresh within the same session. Only triggers once per visit.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">15</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Selection color</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;"><code style="font-family: 'Space Mono', monospace; background: #E8EDE9; padding: 1px 4px; font-size: 10px;">::selection { background: rgba(26,255,224,0.2); color: #DFF2EA; }</code>. Highlighted text matches the brand. A detail only obsessives notice — and obsessives are the audience.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-bottom: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">16</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Input placeholder color</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">Email input placeholder: rgba(200,230,218,0.3). Not the browser default grey. Matches the page's tonal range even in unfilled state.</div></div>
+        </div>
+        <div style="padding: 20px 24px; border-right: 1px solid #D0D8D2; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">17</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Left accent bar parallax</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">The 4px left accent bar very subtly shifts: at scroll 0 it is at rgba(26,255,224,0.12); at full-page bottom it dims to rgba(26,255,224,0.06). Achieved with a single scroll listener. 60fps smooth.</div></div>
+        </div>
+        <div style="padding: 20px 24px; display: flex; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #1AFFE0; font-weight: 700; flex-shrink: 0; margin-top: 2px;">18</span>
+          <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Favicon and browser title</div><div style="font-size: 13px; color: #4A6B58; line-height: 1.5;">Favicon: white "OX" on #080E0B background, 32×32px SVG. Browser tab title: "OffsetX — Carbon Intelligence Infrastructure". Meta description: the H1 subheading text, verbatim.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 07 — DESIGN DIRECTOR CRITIQUE
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px; border-bottom: 1px solid #D0D8D2;" id="s07">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 07 — DESIGN DIRECTOR CRITIQUE</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 12px;">Honest self-review</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 48px;">Pretending I'm sitting in the design review at Stripe or Linear. What would we push back on?</p>
+
+      <div style="margin-bottom: 48px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8A1A1A; letter-spacing: 3px; margin-bottom: 24px;">WEAKNESSES</div>
+        <div style="display: flex; flex-direction: column; gap: 0; border: 1px solid #D0D8D2;">
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #C04040; border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">No above-the-fold social proof</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">The hero section has no logos, quotes, or validation signals. For a B2B product targeting risk-averse corporate buyers and investors, the absence of any credibility anchor in the hero is a conversion risk. "Building the trust layer" is a claim — nothing in the hero substantiates it before the scroll.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #C04040; border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">The problem section assumes domain knowledge</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Terms like "CBAM", "VCM", "MRV", "Article 6", and "UNIC" are used without any contextual tooltip or glossary. For investors outside the carbon space (common in climate tech VC), this creates friction. A single clarifying line under each card header ("CBAM = Carbon Border Adjustment Mechanism") would convert more without breaking the aesthetic.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #C04040; border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">The email capture is under-motivated</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Asking for an email before articulating the specific value of early access is weak. "Be among the first organisations" is generic. The section needs a specific hook: what do early access participants get? A beta, a briefing, a data preview? The copy must earn the email address.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #C04040; border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">No founder/team signal</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">For a pre-product company, the founding team's credibility is a core asset. The brief mentions "TALK TO THE FOUNDER" but provides no context on who the founder is. A single line of founder bio — industry background, previous role — would dramatically increase conversion among investors.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #C04040; border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">What We're Building is undifferentiated at first glance</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">The five-item list reads as features, not a product. It doesn't communicate the integrated platform vision — how the five capabilities connect. A single line above the list articulating the architecture (e.g. "One connected platform. Five capabilities.") would reframe the section from a feature list to a system vision.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 48px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 24px;">RECOMMENDED IMPROVEMENTS</div>
+        <div style="display: flex; flex-direction: column; gap: 0; border: 1px solid #D0D8D2;">
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #1A8A5F; border-radius: 50%; margin-top: 5px;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Add a "backed by" or "supported by" signal</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Even a single line — "Funded by [investor name]" or "Supported by [accelerator]" — positioned discreetly below the CTAs would shift the hero's trust signal from 0 to something. If no investors yet, a press mention or institutional partnership would serve the same function.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #1A8A5F; border-radius: 50%; margin-top: 5px;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Add a scroll progress indicator</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">A 1px teal line that grows from 0 to 100% width at the top of the viewport as the user scrolls the page. Reinforces the document-like reading experience and gives spatial orientation on a longer page.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #D0D8D2; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #1A8A5F; border-radius: 50%; margin-top: 5px;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Add a quote section between counters and research</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">One or two anonymised expert quotes — rendered large, editorial, dark-panel — between the counter strip and research grid would add human texture to what is currently an entirely data-driven narrative. Even without attribution, the quotes signal depth of discovery.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 16px; padding: 20px 24px; align-items: start;">
+            <div style="width: 8px; height: 8px; background: #1A8A5F; border-radius: 50%; margin-top: 5px;"></div>
+            <div><div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 4px;">Active nav highlighting</div><p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">As the user scrolls past each section, the corresponding nav link should update to color #DFF2EA. Implemented with IntersectionObserver per section. Gives spatial awareness and makes the nav feel intelligent.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A60; letter-spacing: 3px; margin-bottom: 24px;">ENTERPRISE PREMIUM ADDITIONS</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 8px;">OpenGraph / Twitter Card metadata</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">When shared on LinkedIn (the primary channel for this audience), the link preview must show a branded card: dark bg, wordmark, H1 excerpt. This is the first impression most enterprise visitors have of the page.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 8px;">Accessibility: ARIA landmarks</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Each section should be wrapped in a semantic landmark (<code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 1px 4px; font-size: 10px;">&lt;main&gt;</code>, <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 1px 4px; font-size: 10px;">&lt;section aria-label&gt;</code>, <code style="font-family: 'Space Mono', monospace; background: #E0E8E3; padding: 1px 4px; font-size: 10px;">&lt;nav&gt;</code>). Enterprise buyers often run accessibility audits before vendor approval.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 8px;">Plausible / privacy-first analytics</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Add Plausible.io (1KB, cookieless, GDPR-native). Captures which CTA converts, scroll depth, source of traffic. Critical for knowing which LinkedIn posts drive email captures.</p>
+          </div>
+          <div style="background: #F2F4F1; padding: 20px;">
+            <div style="font-size: 14px; font-weight: 600; color: #0E1511; margin-bottom: 8px;">Lighthouse score target: 95+</div>
+            <p style="font-size: 13px; color: #4A6B58; line-height: 1.6;">Performance, accessibility, best practices, SEO. Single HTML file with no external JS frameworks means this is achievable. Space Grotesk must use font-display: swap. All images must have alt text.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         § 08 — IMPLEMENTATION BLUEPRINT
+    ═══════════════════════════════════════════════════════════ -->
+    <div style="padding: 80px 0 64px;" id="s08">
+      <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #0D7A5F; letter-spacing: 3px; margin-bottom: 40px;">§ 08 — IMPLEMENTATION BLUEPRINT</div>
+      <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -1px; color: #080E0B; margin-bottom: 12px;">Complete technical reference</h2>
+      <p style="font-size: 16px; font-weight: 300; color: #4A6B58; max-width: 680px; line-height: 1.7; margin-bottom: 48px;">Everything a frontend engineer needs to implement this specification exactly, without a single design clarification call.</p>
+
+      <!-- Quick reference -->
+      <div style="background: #080E0B; padding: 40px; margin-bottom: 32px; border: 1px solid rgba(26,255,224,0.1);">
+        <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #3D7A60; letter-spacing: 3px; margin-bottom: 24px;">QUICK REFERENCE · ALL TOKENS</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-family: 'Space Mono', monospace; font-size: 12px; line-height: 2; color: #7AB8A0;">
+          <div>
+            <div style="color: #3D7A60; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">COLORS</div>
+            <div><span style="color: #1AFFE0;">--color-bg:</span> #080E0B</div>
+            <div><span style="color: #1AFFE0;">--color-surface:</span> #0D1A14</div>
+            <div><span style="color: #1AFFE0;">--color-surface-2:</span> #0A1410</div>
+            <div><span style="color: #1AFFE0;">--color-accent:</span> #1AFFE0</div>
+            <div><span style="color: #1AFFE0;">--color-border:</span> rgba(26,255,224,0.1)</div>
+            <div><span style="color: #1AFFE0;">--color-text-primary:</span> #DFF2EA</div>
+            <div><span style="color: #1AFFE0;">--color-text-body:</span> #C8E6DA</div>
+            <div><span style="color: #1AFFE0;">--color-text-muted:</span> #7AB8A0</div>
+          </div>
+          <div>
+            <div style="color: #3D7A60; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">TYPOGRAPHY</div>
+            <div><span style="color: #1AFFE0;">--font-display:</span> 'Space Grotesk', sans-serif</div>
+            <div><span style="color: #1AFFE0;">--font-mono:</span> 'Space Mono', monospace</div>
+            <div><span style="color: #1AFFE0;">--h1-size:</span> clamp(36px, 5.5vw, 72px)</div>
+            <div><span style="color: #1AFFE0;">--h1-weight:</span> 700</div>
+            <div><span style="color: #1AFFE0;">--h1-tracking:</span> -1.5px</div>
+            <div><span style="color: #1AFFE0;">--body-lh:</span> 1.7</div>
+            <div><span style="color: #1AFFE0;">--label-tracking:</span> 3–4px</div>
+            <div><span style="color: #1AFFE0;">--label-transform:</span> uppercase</div>
+          </div>
+          <div>
+            <div style="color: #3D7A60; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">LAYOUT</div>
+            <div><span style="color: #1AFFE0;">--container-max:</span> 1280px</div>
+            <div><span style="color: #1AFFE0;">--container-margin:</span> 80px</div>
+            <div><span style="color: #1AFFE0;">--nav-height:</span> 56px</div>
+            <div><span style="color: #1AFFE0;">--section-pad:</span> 120px</div>
+            <div><span style="color: #1AFFE0;">--hero-pad-top:</span> 160px</div>
+            <div><span style="color: #1AFFE0;">--hero-pad-bottom:</span> 100px</div>
+            <div><span style="color: #1AFFE0;">--mobile-bp:</span> 640px</div>
+            <div><span style="color: #1AFFE0;">--card-pad:</span> 28px</div>
+          </div>
+          <div>
+            <div style="color: #3D7A60; font-size: 9px; letter-spacing: 2px; margin-bottom: 8px;">ANIMATION</div>
+            <div><span style="color: #1AFFE0;">--ease-out:</span> cubic-bezier(0,0,0.2,1)</div>
+            <div><span style="color: #1AFFE0;">--duration-micro:</span> 150ms</div>
+            <div><span style="color: #1AFFE0;">--duration-fast:</span> 200ms</div>
+            <div><span style="color: #1AFFE0;">--duration-reveal:</span> 500ms</div>
+            <div><span style="color: #1AFFE0;">--duration-counter:</span> 1400ms</div>
+            <div><span style="color: #1AFFE0;">--stagger-delay:</span> 80ms</div>
+            <div><span style="color: #1AFFE0;">--reveal-y:</span> translateY(20px→0)</div>
+            <div><span style="color: #1AFFE0;">--counter-ease:</span> 1−(1−p)³</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page order + section IDs -->
+      <div style="margin-bottom: 32px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">PAGE SECTION ORDER + HTML ANCHORS</div>
+        <table style="border: 1px solid #D0D8D2;">
+          <thead>
+            <tr style="background: #F2F4F1;"><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">#</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">SECTION</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">HTML ID</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">NAV LABEL</th></tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58; border-right: 1px solid #D0D8D2;">—</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Navigation (sticky)</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">(no anchor)</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">—</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">01</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Hero</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#hero</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">—</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">02</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">The Problem</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#problem</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">WHY NOW</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">03</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">What We're Building</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#product</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">WHAT WE BUILD</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">04</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Discovery Counter</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#research</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">—</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">05</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Research &amp; Signals</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#signals</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">RESEARCH</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #1AFFE0; border-right: 1px solid #D0D8D2;">06</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Email Capture / Follow</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">#follow</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">JOIN EARLY ACCESS</td></tr>
+            <tr><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #4A6B58; border-right: 1px solid #D0D8D2;">—</td><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; border-right: 1px solid #D0D8D2;">Footer</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">(no anchor)</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58;">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dependencies -->
+      <div style="margin-bottom: 32px;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 3px; margin-bottom: 20px;">DEPENDENCIES</div>
+        <table style="border: 1px solid #D0D8D2;">
+          <thead><tr style="background: #F2F4F1;"><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">DEPENDENCY</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700; border-right: 1px solid #D0D8D2;">SOURCE</th><th style="padding: 10px 16px; text-align: left; font-family: 'Space Mono', monospace; font-size: 10px; color: #8AA898; letter-spacing: 2px; border-bottom: 1px solid #D0D8D2; font-weight: 700;">NOTES</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Space Grotesk</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Google Fonts</td><td style="padding: 10px 16px; font-size: 13px; color: #4A6B58;">Weights: 300, 400, 600, 700. Use font-display: swap.</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">Space Mono</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Google Fonts</td><td style="padding: 10px 16px; font-size: 13px; color: #4A6B58;">Weights: 400, 700. Include italic 400.</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">IntersectionObserver</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Native browser API</td><td style="padding: 10px 16px; font-size: 13px; color: #4A6B58;">For scroll reveals + counter animation trigger. 97%+ browser support.</td></tr>
+            <tr style="border-bottom: 1px solid #D0D8D2;"><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">requestAnimationFrame</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">Native browser API</td><td style="padding: 10px 16px; font-size: 13px; color: #4A6B58;">For counter animation. No library required.</td></tr>
+            <tr><td style="padding: 10px 16px; font-size: 13px; color: #0E1511; font-weight: 600; border-right: 1px solid #D0D8D2;">No JS framework</td><td style="padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 11px; color: #4A6B58; border-right: 1px solid #D0D8D2;">—</td><td style="padding: 10px 16px; font-size: 13px; color: #4A6B58;">Single HTML file. Vanilla JS only. No React, no Vue, no Tailwind. Per brief: can be deployed to offsetx.io via Vercel, Netlify, or Cloudflare Pages.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Final rule -->
+      <div style="background: #080E0B; padding: 40px; border: 1px solid rgba(26,255,224,0.2);">
+        <div style="font-family: 'Space Mono', monospace; font-size: 9px; color: #1AFFE0; letter-spacing: 4px; margin-bottom: 20px;">THE ONE RULE TO REMEMBER</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #DFF2EA; letter-spacing: -0.5px; line-height: 1.3; margin-bottom: 20px;">This page is designed to convince people who do not need convincing — they're already interested. Do not try to sell them. Give them the signal they're looking for, clearly, with precision and restraint.</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 300; color: #7AB8A0; line-height: 1.7;">Every pixel of whitespace is intentional. Every line of copy has been edited down, not up. Every animation is there because its absence would be felt. This is the discipline of infrastructure design — and it is the most credible design signal OffsetX can send.</div>
+      </div>
+    </div>
+
+  </div><!-- /main container -->
+</div><!-- /outer shell -->
+
+</x-dc>
+</body>
+</html>
