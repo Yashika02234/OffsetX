@@ -5,7 +5,7 @@ export function ResearchSection() {
     <section id="research" className="section" aria-label="Research">
       <div className="container">
         <div className="section-header reveal">
-          <span className="eyebrow">07 — RESEARCH</span>
+
           <h2 className="section-h2">Our perspective on what's coming.</h2>
         </div>
         <div className="research-grid">
@@ -14,9 +14,8 @@ export function ResearchSection() {
               href={card.href}
               target="_blank"
               rel="noopener"
-              className={`research-card reveal${
-                index > 0 ? ` reveal-d${index > 3 ? 3 : index > 1 ? 2 : 1}` : ''
-              }`}
+              className={`research-card reveal${index > 0 ? ` reveal-d${index > 3 ? 3 : index > 1 ? 2 : 1}` : ''
+                }`}
               key={card.title}
             >
               <span className="research-tag">{card.tag}</span>

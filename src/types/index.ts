@@ -19,6 +19,7 @@ export type LearningItem = {
 export type ExploringItem = {
   title: string;
   description: string;
+  topics?: string[];
 };
 
 export type ResearchCard = {

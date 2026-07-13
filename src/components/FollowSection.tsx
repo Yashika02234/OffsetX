@@ -18,13 +18,11 @@ export function FollowSection() {
   return (
     <section id="follow" aria-label="Follow our journey">
       <div className="container">
-        <span className="eyebrow reveal" style={{ display: 'block', textAlign: 'center' }}>
-          08 — FOLLOW OUR JOURNEY
-        </span>
-        <h2 className="follow-h2 reveal reveal-d1">Follow our research as we build.</h2>
+
+        <h2 className="follow-h2 reveal reveal-d1">Be among the first organisations
+          to access OffsetX.</h2>
         <p className="follow-sub reveal reveal-d2">
-          We publish weekly — regulatory analysis, market observations, and honest reflections
-          from building in public. No noise.
+          We're onboarding a select group of compliance teams and carbon market participants. No commitment required — just early access.
         </p>
 
         {!submitted ? (

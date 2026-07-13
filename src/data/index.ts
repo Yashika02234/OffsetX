@@ -77,25 +77,67 @@ export const exploringItems: ExploringItem[] = [
   {
     title: 'Compliance-grade emissions data',
     description: 'Structured, audit-ready Scope 1, 2, and 3 data for EU ETS, CBAM, and CSRD.',
+    topics: [
+      'Scope 1, 2 & 3 accounting frameworks',
+      'GHG Protocol standards',
+      'EU ETS data requirements',
+      'CBAM embedded emissions reporting',
+      'CSRD disclosure standards',
+      'Data validation & quality pipelines',
+      'Audit trail architecture',
+    ],
   },
   {
     title: 'Digital MRV',
     description: 'Satellite, IoT, and AI-driven continuous measurement, reporting, and verification.',
+    topics: [
+      'Satellite imagery analysis',
+      'IoT sensor network integration',
+      'AI-driven anomaly detection',
+      'Continuous monitoring systems',
+      'Ground-truthing methodologies',
+      'Remote sensing protocols',
+      'Local calibration data requirements',
+    ],
   },
   {
     title: 'Audit-ready reporting',
     description: 'Compliance-grade documentation structured to survive regulatory review.',
+    topics: [
+      'Third-party verification workflows',
+      'Regulatory documentation standards',
+      'Chain of custody tracking',
+      'Compliance evidence management',
+      'Registry submission protocols',
+      'Cross-border reporting requirements',
+    ],
   },
   {
     title: 'Carbon market intelligence',
-    description:
-      'Structured data on credit supply, demand, registry activity, and compliance exposure.',
+    description: 'Structured data on credit supply, demand, registry activity, and compliance exposure.',
+    topics: [
+      'Registry API integrations',
+      'Credit supply & demand signals',
+      'Price discovery mechanisms',
+      'VCM market structure & trends',
+      'Compliance market analytics',
+      'Buyer demand profiling',
+    ],
   },
   {
     title: 'Trust and verification infrastructure',
     description: 'UNIC — Universal Carbon Identifier — traceable across registries and geographies.',
+    topics: [
+      'Universal Carbon Identifier (UNIC)',
+      'Cross-registry reconciliation',
+      'Digital attestation protocols',
+      'Interoperability standards',
+      'Double-counting prevention',
+      'Provenance & traceability layers',
+    ],
   },
 ];
+
 
 export const researchCards: ResearchCard[] = [
   {

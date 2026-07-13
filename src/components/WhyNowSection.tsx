@@ -5,7 +5,7 @@ export function WhyNowSection() {
     <section id="why-now" className="section" aria-label="Why Now">
       <div className="container">
         <div className="section-header reveal">
-          <span className="eyebrow">03 — WHY NOW</span>
+
           <h2 className="section-h2">
             Climate markets are entering a new era of accountability.
           </h2>
