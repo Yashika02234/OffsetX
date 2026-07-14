@@ -4,7 +4,7 @@ export const counters: Counter[] = [
   { value: 20, suffix: '+', label: 'EXPERT<br/>INTERVIEWS' },
   { value: 12, suffix: '+', label: 'STAKEHOLDER<br/>GROUPS' },
   { value: 4, suffix: '', label: 'GEOGRAPHIES<br/>COVERED' },
-  { value: 30, suffix: '+', label: 'HOURS OF<br/>RESEARCH' },
+  { value: 500, suffix: '+', label: 'HOURS OF<br/>RESEARCH' },
 ];
 
 export const whyNowItems: WhyNowItem[] = [
