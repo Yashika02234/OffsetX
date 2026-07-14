@@ -4,15 +4,33 @@ export function FollowSection() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     if (!isValid) {
       setEmailError(true);
       return;
     }
     setEmailError(false);
-    setSubmitted(true);
+    setServerError(false);
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      if (!res.ok) throw new Error('Server error');
+      setSubmitted(true);
+    } catch {
+      setServerError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -33,9 +51,11 @@ export function FollowSection() {
               placeholder="your@email.com"
               aria-label="Email address"
               value={email}
+              disabled={loading}
               onChange={(event) => {
                 setEmail(event.target.value);
                 if (emailError) setEmailError(false);
+                if (serverError) setServerError(false);
               }}
               onKeyDown={(event) => {
                 if (event.key === 'Enter') {
@@ -44,9 +64,20 @@ export function FollowSection() {
                 }
               }}
             />
-            <button className="email-submit" type="button" onClick={handleSubmit}>
-              STAY UPDATED <span className="arr">→</span>
+            <button
+              className="email-submit"
+              type="button"
+              onClick={handleSubmit}
+              disabled={loading}
+              aria-busy={loading}
+            >
+              {loading ? 'SENDING…' : <>STAY UPDATED <span className="arr">→</span></>}
             </button>
+            {serverError && (
+              <p style={{ color: '#e05a5a', fontSize: '12px', marginTop: '8px', width: '100%' }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
           </div>
         ) : (
           <div className="success-msg" role="status">
