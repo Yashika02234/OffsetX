@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'OffsetX <onboarding@resend.dev>',
-        to: ['yashika@offset.ai'],
+        to: ['yashika@offsetx.ai'],
         subject: '🌱 New OffsetX Subscriber',
         html: `
           <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; background: #0a0a0a; color: #e0e0e0; border-radius: 12px;">
