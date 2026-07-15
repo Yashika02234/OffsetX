@@ -1,3 +1,37 @@
+// Append a record to Airtable using the REST API
+async function appendToAirtable(email) {
+  const apiToken = process.env.AIRTABLE_API_TOKEN;
+  const baseId = process.env.AIRTABLE_BASE_ID;
+  const tableName = process.env.AIRTABLE_TABLE_NAME || 'Subscribers';
+
+  if (!apiToken || !baseId) {
+    console.warn('Airtable env vars not configured — skipping Airtable append.');
+    return;
+  }
+
+  const response = await fetch(
+    `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fields: {
+          Email: email.trim(),
+          'Subscribed At': new Date().toUTCString(),
+        },
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(`Airtable error: ${JSON.stringify(err)}`);
+  }
+}
+
 export default async function handler(req, res) {
   // Only allow POST
   if (req.method !== 'POST') {
@@ -17,6 +51,7 @@ export default async function handler(req, res) {
   }
 
   try {
+    // 1. Send notification email via Resend
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -46,9 +81,17 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Failed to send email' });
     }
 
+    // 2. Append email to Airtable (non-blocking — failure won't affect user response)
+    try {
+      await appendToAirtable(email);
+    } catch (sheetErr) {
+      console.error('Airtable append error:', sheetErr);
+    }
+
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error('Subscribe handler error:', err);
     return res.status(500).json({ error: 'Internal server error' });
   }
 }
+
